@@ -39,6 +39,9 @@ and [the official vscode theme](https://github.com/arcticicestudio/nord-visual-s
 - [RainbowDelimiter](https://github.com/HiPhish/rainbow-delimiters.nvim)
 - [Neogit](https://github.com/NeogitOrg/neogit)
 - [highlight-undo.nvim](https://github.com/tzachar/highlight-undo.nvim)
+- [Illuminate](https://github.com/RRethy/vim-illuminate)
+- [Codeium](https://github.com/Exafunction/codeium.vim)
+- [Flash.nvim](https://github.com/folke/flash.nvim)
 
 You're preferred plugin is missing ? Open an issue or, even better, open a pull
 request 😉.
@@ -101,6 +104,8 @@ require("nord").setup({
   borders = true, -- Enable the border between verticaly split windows visible
   errors = { mode = "bg" }, -- Display mode for errors and diagnostics
                             -- values : [bg|fg|none]
+  search = { theme = "vim" }, -- theme for highlighting search results
+                              -- values : [vim|vscode]
   styles = {
     -- Style to be applied to different syntax groups
     -- Value is any valid attr-list value for `:help nvim_set_hl`

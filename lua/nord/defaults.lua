@@ -43,19 +43,16 @@ function defaluts.highlights()
     PmenuThumb = { fg = c.frost.ice, bg = c.polar_night.brightest }, -- Popup menu: Thumb of the scrollbar.
     Question = { fg = c.snow_storm.origin }, -- |hit-enter| prompt and yes/no questions
     QuickFixLine = { fg = c.snow_storm.origin, bg = c.none, reverse = true }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    Search = { fg = c.frost.ice, bg = c.none, reverse = true }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
-    IncSearch = { fg = c.snow_storm.brightest, bg = c.frost.ice }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+    Search = options.search.theme == "vscode" and { fg = c.none, bg = utils.darken(c.frost.ice, 0.2) }
+      or { fg = c.frost.ice, bg = c.none, reverse = true }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+    IncSearch = options.search.theme == "vscode" and { fg = c.snow_storm.origin, bg = utils.darken(c.frost.ice, 0.5) }
+      or { fg = c.snow_storm.brightest, bg = c.frost.ice }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     CurSearch = { link = "IncSearch" },
     SpecialKey = { fg = c.polar_night.brightest }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
-    SpellBad = { fg = c.aurora.red, bg = global_bg, sp = c.aurora.red, undercurl = true }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
-    SpellCap = { fg = c.aurora.yellow, bg = global_bg, sp = c.aurora.yellow, undercurl = true }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
-    SpellLocal = { fg = c.snow_storm.brighter, bg = global_bg, sp = c.snow_storm.brighter, undercurl = true }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
-    SpellRare = {
-      fg = c.snow_storm.brightest,
-      bg = global_bg,
-      sp = c.snow_storm.brightest,
-      undercurl = true,
-    }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
+    SpellBad = { sp = c.aurora.red, undercurl = true }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
+    SpellCap = { sp = c.aurora.yellow, undercurl = true }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
+    SpellLocal = { sp = c.snow_storm.brighter, undercurl = true }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
+    SpellRare = { fg = c.snow_storm.brightest, bg = global_bg, sp = c.snow_storm.brightest, undercurl = true }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
     StatusLine = { fg = c.frost.ice, bg = c.polar_night.brighter }, -- status line of current window
     StatusLineNC = { fg = c.snow_storm.origin, bg = c.polar_night.brightest }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     TabLine = { fg = c.snow_storm.origin, bg = c.fg_gutter }, -- tab pages line, not active tab page label
@@ -79,6 +76,8 @@ function defaluts.highlights()
     healthError = { fg = c.aurora.red },
     healthSuccess = { fg = c.aurora.green },
     healthWarning = { fg = c.aurora.yellow },
+    WinBar = { bg = c.polar_night.origin },
+    WinBarNC = { bg = c.polar_night.origin },
   }
 end
 
